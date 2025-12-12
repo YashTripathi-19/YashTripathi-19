@@ -45,7 +45,7 @@
   &nbsp;
   <img src="https://github-readme-stats.vercel.app/api?username=YashTripathi-19&show_icons=true&theme=dark&title_color=1DB954&icon_color=1DB954&text_color=FFFFFF&bg_color=0D1117&hide_border=true&count_private=true&rank_icon=github&custom_title=GitHub+Overview" height="180" alt="GitHub Overview Stats"/>
   <br/><br/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YashTripathi-19&theme=dark&ring=1DB954&fire=1DB954&currStreakLabel=1DB954&hide_border=true&background=0D1117" width="70%" alt="GitHub Streak"/>
+ 
 </p>
 
 ---
