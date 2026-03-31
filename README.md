@@ -18,7 +18,7 @@
 <!-- AUTO-UPDATED TECH STACK — managed by .github/workflows/update-techstack.yml -->
 <!-- TECHSTACK-START -->
 <p>
-  <img src="https://skillicons.dev/icons?i=java,python,javascript,nodejs,react,html,css,git,github&theme=dark&perline=8" alt="Tech Icons"/>
+  <img src="https://skillicons.dev/icons?i=css,html,javascript,go,java,nodejs,react,git,github&theme=dark&perline=8" alt="Tech Icons"/>
 </p>
 <!-- TECHSTACK-END -->
 
