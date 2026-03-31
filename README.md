@@ -1,9 +1,7 @@
-
-
 <div align="center">
 
 <!-- Slytherin Themed Animated Header -->
-<img src="https://i.pinimg.com/originals/e9/9b/da/e99bda97f9d6af1acb1ae3fcd298b5fa.gif" width="75%" alt="Slytherin Magic Animation"/>
+<img src="https://media.giphy.com/media/zOvBKUUEERdNm/giphy.gif" width="75%" alt="Slytherin Magic Animation"/>
 
 <!-- Typing Animation Title -->
 <a href="https://git.io/typing-svg">
@@ -16,13 +14,18 @@
 ---
 
 ## 🐍 Technologies I Use
+
+<!-- AUTO-UPDATED TECH STACK — managed by .github/workflows/update-techstack.yml -->
+<!-- TECHSTACK-START -->
 <p>
   <img src="https://skillicons.dev/icons?i=java,python,javascript,nodejs,react,html,css,git,github&theme=dark&perline=8" alt="Tech Icons"/>
 </p>
+<!-- TECHSTACK-END -->
 
 ---
 
 ## 🐍 Find Me Around
+
 <p>
   <a href="https://www.linkedin.com/in/yash-tripathi-194211295/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-1DB954?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
@@ -36,17 +39,5 @@
     <img src="https://img.shields.io/badge/HackerRank-1DB954?style=for-the-badge&logo=HackerRank&logoColor=white" alt="HackerRank"/>
   </a>
 </p>
-
----
-
-## 🐍 GitHub Stats
-<p>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=YashTripathi-19&show_icons=true&theme=dark&title_color=1DB954&icon_color=1DB954&text_color=FFFFFF&bg_color=0D1117&layout=compact&hide_border=true" height="180" alt="Top Languages"/>
-  &nbsp;
-  <img src="https://github-readme-stats.vercel.app/api?username=YashTripathi-19&show_icons=true&theme=dark&title_color=1DB954&icon_color=1DB954&text_color=FFFFFF&bg_color=0D1117&hide_border=true&count_private=true&rank_icon=github&custom_title=GitHub+Overview" height="180" alt="GitHub Overview Stats"/>
-  <br/><br/>
- 
-</p>
-
 
 </div>
