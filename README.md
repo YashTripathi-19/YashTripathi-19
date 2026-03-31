@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Slytherin Themed Animated Header -->
-<img src="https://media.giphy.com/media/zOvBKUUEERdNm/giphy.gif" width="75%" alt="Slytherin Magic Animation"/>
+<img src="https://github.com/user-attachments/assets/79698836-4067-47e1-ad3b-0a0fd01d01f0" width="75%" alt="Slytherin Magic Animation"/>
 
 <!-- Typing Animation Title -->
 <a href="https://git.io/typing-svg">
@@ -18,7 +18,7 @@
 <!-- AUTO-UPDATED TECH STACK — managed by .github/workflows/update-techstack.yml -->
 <!-- TECHSTACK-START -->
 <p>
-  <img src="https://skillicons.dev/icons?i=css,html,javascript,go,java,nodejs,react,git,github&theme=dark&perline=8" alt="Tech Icons"/>
+  <img src="https://skillicons.dev/icons?i=java,python,javascript,nodejs,react,html,css,git,github&theme=dark&perline=8" alt="Tech Icons"/>
 </p>
 <!-- TECHSTACK-END -->
 
