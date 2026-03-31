@@ -1,0 +1,128 @@
+name: Update Tech Stack
+
+on:
+  push:
+    branches: ["**"]          # fires on every push to any branch
+  create:                      # fires when a new repo branch/tag is created
+  workflow_dispatch:           # lets you trigger it manually from Actions tab
+
+jobs:
+  update-techstack:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout profile repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Detect languages from all public repos
+        env:
+          GH_USERNAME: YashTripathi-19
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import os, requests, json
+
+          username = os.environ["GH_USERNAME"]
+          token    = os.environ.get("GH_TOKEN", "")
+          headers  = {"Authorization": f"token {token}"} if token else {}
+
+          # Fetch all public repos
+          repos, page = [], 1
+          while True:
+              r = requests.get(
+                  f"https://api.github.com/users/{username}/repos",
+                  params={"per_page": 100, "page": page, "type": "public"},
+                  headers=headers,
+              )
+              data = r.json()
+              if not data:
+                  break
+              repos.extend(data)
+              page += 1
+
+          # Collect language counts
+          lang_counts = {}
+          for repo in repos:
+              if repo.get("fork"):
+                  continue
+              lr = requests.get(repo["languages_url"], headers=headers)
+              for lang, bytes_ in lr.json().items():
+                  lang_counts[lang] = lang_counts.get(lang, 0) + bytes_
+
+          # Map GitHub language names → skillicons keys
+          LANG_MAP = {
+              "Java":           "java",
+              "Python":         "python",
+              "JavaScript":     "javascript",
+              "TypeScript":     "typescript",
+              "C":              "c",
+              "C++":            "cpp",
+              "C#":             "cs",
+              "Go":             "go",
+              "Rust":           "rust",
+              "Kotlin":         "kotlin",
+              "Swift":          "swift",
+              "Ruby":           "ruby",
+              "PHP":            "php",
+              "HTML":           "html",
+              "CSS":            "css",
+              "Shell":          "bash",
+              "Dockerfile":     "docker",
+          }
+          # Always-include tools (not auto-detected as languages)
+          ALWAYS = ["nodejs", "react", "git", "github"]
+
+          detected = [LANG_MAP[l] for l in lang_counts if l in LANG_MAP]
+          # Sort by usage, deduplicate, merge with always-include list
+          icons = list(dict.fromkeys(detected + ALWAYS))[:16]  # max 16 icons
+
+          icons_str = ",".join(icons)
+          img_tag = (
+              f'<p>\n'
+              f'  <img src="https://skillicons.dev/icons?i={icons_str}&theme=dark&perline=8" alt="Tech Icons"/>\n'
+              f'</p>'
+          )
+          with open("icons_block.txt", "w") as f:
+              f.write(img_tag)
+          print("Detected icons:", icons_str)
+          EOF
+
+      - name: Inject tech stack into README
+        run: |
+          python3 - <<'EOF'
+          import re
+
+          with open("README.md", "r") as f:
+              content = f.read()
+
+          with open("icons_block.txt", "r") as f:
+              new_block = f.read()
+
+          pattern = r"(<!-- TECHSTACK-START -->).*?(<!-- TECHSTACK-END -->)"
+          replacement = f"<!-- TECHSTACK-START -->\n{new_block}\n<!-- TECHSTACK-END -->"
+          updated = re.sub(pattern, replacement, content, flags=re.DOTALL)
+
+          with open("README.md", "w") as f:
+              f.write(updated)
+          print("README updated.")
+          EOF
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet && echo "No changes." || git commit -m "chore: auto-update tech stack [skip ci]"
+          git push
